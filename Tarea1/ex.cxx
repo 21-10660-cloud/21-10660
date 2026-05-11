@@ -1,7 +1,10 @@
 #include <vector>
 #include <numeric>
 #include <cmath>
+#include <algorithm>
+#include <string>
 
+// Ejercicio 3: Promedio y Varianza
 double mean(const std::vector<double>& v) {
     if (v.empty()) return 0.0;
     return std::accumulate(v.begin(), v.end(), 0.0) / v.size();
@@ -15,6 +18,7 @@ double variance(const std::vector<double>& v) {
     return temp / v.size();
 }
 
+// Ejercicio 4: Coeficiente de correlación de Pearson
 double pearson_r(const std::vector<double>& VA, const std::vector<double>& VB) {
     if (VA.size() != VB.size() || VA.empty()) return 0.0;
     double n = VA.size();
@@ -31,10 +35,7 @@ double pearson_r(const std::vector<double>& VA, const std::vector<double>& VB) {
     return (den == 0) ? 0.0 : num / den;
 }
 
-#include <algorithm>
-#include <string>
-
-// --- Funciones Auxiliares para el Ejercicio 5 ---
+// --- Ejercicio 5: Conversiones de Base ---
 
 int char_to_int(char c) {
     if (c >= '0' && c <= '9') return c - '0';
@@ -49,7 +50,7 @@ char int_to_char(int n) {
 
 int to_decimal(std::vector<char> v, int base) {
     int decimal = 0;
-    int power = 1;
+    long long power = 1; // Usamos long long para evitar desbordamientos
     for (int i = v.size() - 1; i >= 0; i--) {
         decimal += char_to_int(v[i]) * power;
         power *= base;
@@ -68,13 +69,10 @@ std::vector<char> from_decimal(int n, int base) {
     return result;
 }
 
-// --- Implementación de las funciones del Ejercicio 5 ---
-
 std::vector<char> dec_to_septapus(int n) { return from_decimal(n, 7); }
 std::vector<char> dec_to_octopus(int n) { return from_decimal(n, 8); }
 std::vector<char> dec_to_hexakaidecapus(int n) { return from_decimal(n, 16); }
 
-// Nota: El enunciado pide retornar vector<char>, por lo que convertimos el numero a caracteres
 std::vector<char> septapus_to_dec(std::vector<char> s) { 
     std::string s_dec = std::to_string(to_decimal(s, 7));
     return std::vector<char>(s_dec.begin(), s_dec.end());
