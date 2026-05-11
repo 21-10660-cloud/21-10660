@@ -1,0 +1,6 @@
+// Ejercicio 1: Leyes de De Morgan
+de_morgan1 = (P, Q) -> !(P & Q) == (!P | !Q)
+de_morgan2 = (P, Q) -> !(P | Q) == (!P & !Q)
+
+// Ejercicio 2: Sucesor
+succ = (z) -> z + 1

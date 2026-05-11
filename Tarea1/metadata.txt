@@ -1,0 +1,3 @@
+Modelo de IA usado: Gemini (Google)
+Prompt Ejercicio 3: "Implementar funciones mean y variance para vectores en C++"
+Prompt Ejercicio 4: "Implementar función pearson_r para coeficiente de correlación en C++"
