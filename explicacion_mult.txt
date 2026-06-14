@@ -1,0 +1,1 @@
+Dado que la multiplicación es conmutativa (x * y = y * x), la función 'mult' utiliza la función auxiliar 'abs' para evaluar cuál de los dos números tiene el menor valor absoluto. Ese número menor se pasa siempre como el contador 'y' en la función recursiva 'mult_rec', garantizando así la menor cantidad posible de iteraciones y evitando desbordar la memoria de la pila de llamadas.
